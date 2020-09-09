@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="EstimationTool.LoginScreen.Login"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EstimationTool.LoginScreen"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="Username" Content="User Name:" HorizontalAlignment="Left" Margin="26.791,45,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="Password" Content="Password:" HorizontalAlignment="Left" Margin="26.791,76,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="Login_Btn" Content="Login" HorizontalAlignment="Left" Margin="106.791,119,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1"/>
+        <TextBox x:Name="txt_username" HorizontalAlignment="Left" Height="23" Margin="106,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontFamily="Century" BorderThickness="2"/>
+        <PasswordBox x:Name="txt_password" HorizontalAlignment="Left" Margin="106,84,0,0" VerticalAlignment="Top" Width="189" PasswordChar="*"/>
+
+    </Grid>
+</UserControl>
