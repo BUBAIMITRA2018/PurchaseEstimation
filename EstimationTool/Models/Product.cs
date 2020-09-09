@@ -9,16 +9,13 @@ namespace Estimationtool.Models
 
 
 
-
-
-
     public class Product: BaseViewModel
     {
 
-        private int id;
+        private string id;
 
-        [Key]
-        public int Id
+     
+        public string Id
         {
             get { return this.id; }
             set { this.SetProperty(ref this.id, value); }

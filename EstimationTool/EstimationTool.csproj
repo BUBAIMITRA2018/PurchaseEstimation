@@ -74,6 +74,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service\IDataStore.cs" />
+    <Compile Include="Service\IEventAggregator.cs" />
+    <Compile Include="Service\ISqlConnectionInterface.cs" />
+    <Compile Include="Service\MockDataStore.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
     <Page Include="HomeScreen\UserControlHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
