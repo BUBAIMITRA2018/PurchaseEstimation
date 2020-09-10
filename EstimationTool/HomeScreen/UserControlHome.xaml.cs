@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EstimationTool.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ using System.Windows.Shapes;
 
 namespace EstimationTool.HomeScreen
 {
+ 
+
     /// <summary>
     /// Interaction logic for UserControlHome.xaml
     /// </summary>
@@ -23,6 +26,12 @@ namespace EstimationTool.HomeScreen
         public UserControlHome()
         {
             InitializeComponent();
+         
+        }
+
+        private void dataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Btn_save_Click(object sender, RoutedEventArgs e)

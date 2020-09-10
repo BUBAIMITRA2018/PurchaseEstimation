@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:EstimationTool"
+     
         mc:Ignorable="d" Height="600" Width="1080" Foreground="White" ResizeMode="CanMinimize" 
         WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized">
     <Window.Resources>
@@ -41,14 +42,14 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
-    <Window.Triggers>
+    <!--<Window.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonClose">
             <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>       
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
             <BeginStoryboard x:Name="OpenMenu_BeginStoryboard" Storyboard="{StaticResource OpenMenu}"/>
         </EventTrigger>
-    </Window.Triggers>
+    </Window.Triggers>-->
     <Grid>
         <Grid x:Name="GridBackground" Background="white"  >
             <!--<Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="540" Width="1010"/>-->
@@ -95,12 +96,12 @@
                             </TransformGroup>
                         </Grid.RenderTransform>
 
-                        <Button x:Name="ButtonOpen" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click">
+                        <!--<Button x:Name="ButtonOpen" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click">
                             <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
                         </Button>
                         <Button x:Name="ButtonClose" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click">
                             <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
-                        </Button>
+                        </Button>-->
 
                         <!--<Image Margin="0,70,0.4,0"/>-->
                         <Image  Height="150" Source="Assets/SMSSteel.jpg" Stretch="Fill" />

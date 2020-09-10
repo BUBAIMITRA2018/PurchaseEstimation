@@ -25,17 +25,17 @@ namespace EstimationTool
         {
             InitializeComponent();
         }
-        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonClose.Visibility = Visibility.Visible;
-            ButtonOpen.Visibility = Visibility.Collapsed;
-        }
+        //private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
+        //{
+        //    ButtonClose.Visibility = Visibility.Visible;
+        //    ButtonOpen.Visibility = Visibility.Collapsed;
+        //}
 
-        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonClose.Visibility = Visibility.Collapsed;
-            ButtonOpen.Visibility = Visibility.Visible;
-        }
+        //private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
+        //{
+        //    ButtonClose.Visibility = Visibility.Collapsed;
+        //    ButtonOpen.Visibility = Visibility.Visible;
+        //}
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

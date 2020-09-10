@@ -1,6 +1,7 @@
 ﻿using Estimationtool;
 using Estimationtool.Models;
 using Estimationtool.Services;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,7 +18,7 @@ namespace EstimationTool.ViewModel
         private Product _selectedProduct;
 
         private bool _isRefreshing;
-        private readonly IDataStore<Product> mockdata;
+        private  IDataStore<Product> mockdata;
 
         public ObservableCollection<Product> Products { get; set; }
         public ICommand LoadItemsCommand { get; set; }
@@ -38,9 +39,11 @@ namespace EstimationTool.ViewModel
 
        
 
-        public HomeViewModel(IDataStore<Product>  Mockdata)
+        public HomeViewModel(IDataStore<Product> Mockdata)
         {
+            Products = new ObservableCollection<Product>();
             mockdata = Mockdata;
+
 
             try
             {
@@ -62,9 +65,15 @@ namespace EstimationTool.ViewModel
 
         }
 
+        [Inject]
+        public void SetDataService(IDataStore<Product> Mockdata)
+        {
+            mockdata = Mockdata;
+        }
+
         async Task ExecuteLoadItemsCommand()
         {
-    
+
 
             try
             {

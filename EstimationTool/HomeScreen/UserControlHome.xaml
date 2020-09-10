@@ -6,11 +6,13 @@
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:EstimationTool.HomeScreen"
+             DataContext="{Binding Path=HomeViewModel, Source={StaticResource ServiceLocator}}"
              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              x:Class="EstimationTool.HomeScreen.UserControlHome"
              mc:Ignorable="d"
-             d:DesignHeight="1200" d:DesignWidth="760" 
-             Margin="400 100 0 0" >
+             d:DesignHeight="1200" d:DesignWidth="760"  >
+
+
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -19,18 +21,15 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <syncfusion:SfDataGrid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="1584"                          
+    <syncfusion:SfDataGrid HorizontalAlignment="Left" Height="438" VerticalAlignment="Top" Width="1656"                          
                                        x:Name="dataGrid"
+                                       ItemsSource="{Binding Products}"
                                        AllowFiltering="True"
                                        AllowGrouping="True"
                                        ColumnSizer="Star"
                                        NavigationMode="Row"
-                                       AutoGenerateColumns="False"
-                                       
-                           
-                           
-                           
-                                       ShowGroupDropArea="True" Margin="-124,0,-700,0"  >
+                                       AutoGenerateColumns="False"                                     
+                                       ShowGroupDropArea="True" Margin="258,62,-1154,0"  >
 
         <syncfusion:SfDataGrid.Resources>
             <ResourceDictionary>
@@ -42,29 +41,26 @@
 
 
         <syncfusion:SfDataGrid.Columns>
-            <syncfusion:GridTextColumn HeaderText="ID" MappingName="Id" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="WBSElement" MappingName="WBSElement" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="ProductNo" MappingName="ProductNo" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="ItemDescription" MappingName="ItemDescription" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="MatrialNo" MappingName="MatrialNo" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="Specification" MappingName="Specification" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="Description" MappingName="Description" Width="150"/>
-            <syncfusion:GridTextColumn HeaderText="Project" MappingName="Project" Width="150"/>
-            <syncfusion:GridTextColumn HeaderText="QtyReq" MappingName="QtyReq" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="UnitofMeasurment" MappingName="UnitofMeasurment" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="UnitWt" MappingName="UnitWt" Width="150"/>
-            <syncfusion:GridTextColumn HeaderText="WeightUnit" MappingName="WeightUnit" Width="150"/>
-            <syncfusion:GridTextColumn HeaderText="PurchasingDocument" MappingName="PurchasingDocument" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="Item" MappingName="Item" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="PurchaseOrderNo" MappingName="PurchaseOrderNo" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="UnitRatePrice" MappingName="UnitRatePrice" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="NetOrderPrice" MappingName="NetOrderPrice" Width="150"/>
-            <syncfusion:GridTextColumn HeaderText="Currency" MappingName="Currency" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="SupplierName" MappingName="SupplierName" Width="150" />
-            <syncfusion:GridTextColumn HeaderText="Destination" MappingName="Destination" Width="150" />
-
-
-
+            <syncfusion:GridTextColumn HeaderText="ID" MappingName="Id" Width="150" TextAlignment="Center"  HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="WBSElement" MappingName="WBSElement" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="ProductNo" MappingName="ProductNo" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="ItemDescription" MappingName="ItemDescription" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="MatrialNo" MappingName="MatrialNo" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="Specification" MappingName="Specification" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="Description" MappingName="Description" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
+            <syncfusion:GridTextColumn HeaderText="Project" MappingName="Project" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
+            <syncfusion:GridTextColumn HeaderText="QtyReq" MappingName="QtyReq" Width="300" TextAlignment="Center"  HorizontalHeaderContentAlignment="Center"/>
+            <syncfusion:GridTextColumn HeaderText="UnitofMeasurment" MappingName="UnitofMeasurment" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="UnitWt" MappingName="UnitWt" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
+            <syncfusion:GridTextColumn HeaderText="WeightUnit" MappingName="WeightUnit" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
+            <syncfusion:GridTextColumn HeaderText="PurchasingDocument" MappingName="PurchasingDocument" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="Item" MappingName="Item" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="PurchaseOrderNo" MappingName="PurchaseOrderNo" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center"/>
+            <syncfusion:GridTextColumn HeaderText="UnitRatePrice" MappingName="UnitRatePrice" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center"/>
+            <syncfusion:GridTextColumn HeaderText="NetOrderPrice" MappingName="NetOrderPrice" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center"/>
+            <syncfusion:GridTextColumn HeaderText="Currency" MappingName="Currency" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
+            <syncfusion:GridTextColumn HeaderText="SupplierName" MappingName="SupplierName" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
+            <syncfusion:GridTextColumn HeaderText="Destination" MappingName="Destination" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
 
 
 
