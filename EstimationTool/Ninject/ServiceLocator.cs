@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EstimationTool.Ninject
 {
-    class ServiceLocator
+  public  class ServiceLocator
     {
 
         private readonly IKernel kernel;

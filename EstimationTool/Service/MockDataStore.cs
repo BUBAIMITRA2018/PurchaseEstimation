@@ -3,55 +3,62 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Estimationtool.Data;
 using Estimationtool.Helper;
 using Estimationtool.Models;
-
-
+using Ninject;
 
 namespace Estimationtool.Services
 {
     public class MockDataStore : IDataStore<Product>
     {
         List<Product> products;
+        private IDataStore<Product> mockdata;
 
         //public DbContext dataacess => DependencyService.Get<DbContext>() ?? new DataAcess();
+
+       
 
         public MockDataStore()
         {
             products = new List<Product>();
 
+            DataAcess dataacess = new DataAcess();
 
-
-            var mockproducts = new List<Product>
-            {
-                new Product{Id = "1", WBSElement = "First product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
-                ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
-                UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
-                UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
-
-                 new Product{Id = "2", WBSElement = "Second product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
-                ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
-                UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
-                UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
-
-                new Product{Id = "3", WBSElement = "Third product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
-                ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
-                UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
-                UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
-
-                new Product{Id = "4", WBSElement = "Forth product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
-                ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
-                UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
-                UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
-
-                new Product{Id = "5", WBSElement = "Five product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
-                ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
-                UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
-                UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
+            var mockproducts = dataacess.Products.ToList();
 
 
 
-            };
+            //var mockproducts = new List<Product>
+            //{
+            //    new Product{Id = 1, WBSElement = "First product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
+            //    ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
+            //    UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
+            //    UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
+
+            //     new Product{Id = 2, WBSElement = "Second product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
+            //    ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
+            //    UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
+            //    UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
+
+            //    new Product{Id = 3, WBSElement = "Third product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
+            //    ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
+            //    UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
+            //    UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
+
+            //    new Product{Id = 4, WBSElement = "Forth product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
+            //    ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
+            //    UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
+            //    UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
+
+            //    new Product{Id = 5, WBSElement = "Five product" , Description = "This is an product description.", ProductNo = "1234",Project = "CasterCSP",
+            //    ItemDescription = "This is an product description." , MatrialNo = "54321", Size = "567" , Specification = "1234567" , QtyReq = "2",NetOrderPrice = "500000078905.879",
+            //    UnitofMeasurment = "768" , UnitWt = "2345" , WeightUnit = "Kg", PurchasingDocument = "abcdfeg" , Item = "ytrgfy", PurchaseOrderNo = "456789",
+            //    UnitRatePrice = "KG" , Currency = "RS", SupplierName = "ABB LTD.", Destination = "TATA STEEL"},
+
+
+
+            //};
 
             foreach (var product in mockproducts)
             {
@@ -83,7 +90,7 @@ namespace Estimationtool.Services
         public async Task<bool> DeleteItemAsync(int id)
         {
 
-            var oldproduct = products.Where((Product arg) => arg.Id == "id").FirstOrDefault();
+            var oldproduct = products.Where((Product arg) => arg.Id == id).FirstOrDefault();
             products.Remove(oldproduct);
 
             return await Task.FromResult(true);

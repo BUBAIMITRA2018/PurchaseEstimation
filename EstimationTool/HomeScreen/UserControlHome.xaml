@@ -1,13 +1,10 @@
-﻿<UserControl
+﻿<UserControl xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:EstimationTool.HomeScreen"
-             DataContext="{Binding Path=HomeViewModel, Source={StaticResource ServiceLocator}}"
-             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+              DataContext="{Binding Path=HomeViewModel, Source={StaticResource ServiceLocator}}"
+
              x:Class="EstimationTool.HomeScreen.UserControlHome"
              mc:Ignorable="d"
              d:DesignHeight="1200" d:DesignWidth="760"  >
@@ -15,13 +12,263 @@
 
 
     <UserControl.Resources>
+
         <ResourceDictionary>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+                <ResourceDictionary Source="/EstimationTool;component/Resources/ScrollViewerStyle.xaml" />
+                <ResourceDictionary Source="/EstimationTool;component/Resources/DataGridStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
         </ResourceDictionary>
     </UserControl.Resources>
-    <syncfusion:SfDataGrid HorizontalAlignment="Left" Height="438" VerticalAlignment="Top" Width="1656"                          
+
+    <StackPanel>
+
+        <DataGrid  HorizontalAlignment="Left" Height="344" VerticalAlignment="Top" Width="1630"   AlternationCount="2"    AutoGenerateColumns="False"                
+        ItemsSource="{ Binding Products}" x:Name="dataGrid" Margin="274,94,-1126,0">
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Visibility="Visible"  Background ="Transparent" >
+                                    <TextBlock  Text="{Binding}"   Background="Transparent" HorizontalAlignment="Center" Margin="10,5"   >
+
+                                    </TextBlock>
+
+                                    <Button x:Name="btnfilter" Click="Btnfilter_Click"
+                                        HorizontalAlignment="Right" BorderBrush="Transparent" Background="Transparent"  Margin="0,-2" >
+
+                                        <materialDesign:PackIcon Kind="Filter" Foreground="BlueViolet"  BorderThickness="0" BorderBrush="Transparent" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+
+                                    </Button>
+
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </Setter.Value>
+
+                    </Setter>
+                </Style>
+            </DataGrid.Resources>
+
+
+            <DataGrid.Columns>
+                
+                
+                <DataGridTextColumn 
+         
+                                    Width="200"
+				                    Binding="{Binding Id}"                                    
+				                    Header="ID" />
+                <DataGridTextColumn     Width="200"
+                                    
+				                    Binding="{Binding WBSElement}"
+				                    Header="WBSElement" />
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding ProductNo}"
+				                    Header="ProductNo" />
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding ItemDescription}"
+				                    Header="ItemDescription" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding Specification}"
+				                    Header="Specification" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding MatrialNo}"
+				                    Header="MatrialNo" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding Description}"
+				                    Header="Description" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding Project}"
+				                    Header="Project" />
+
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding QtyReq}"
+				                    Header="QtyReq" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding UnitofMeasurment}"
+				                    Header="UnitofMeasurment" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding UnitWt}"
+				                    Header="UnitWt" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding WeightUnit}"
+				                    Header="WeightUnit" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding PurchasingDocument}"
+				                    Header="PurchasingDocument" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding Item}"
+				                    Header="Item" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding PurchaseOrderNo}"
+				                    Header="PurchaseOrderNo" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding UnitRatePrice}"
+				                    Header="UnitRatePrice" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding NetOrderPrice}"
+				                    Header="NetOrderPrice" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding Currency}"
+				                    Header="Currency" />
+
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding SupplierName}"
+				                    Header="SupplierName" />
+
+                <DataGridTextColumn     Width="200"
+				                    Binding="{Binding Destination}"
+				                    Header="Destination" />
+               
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Popup  x:Name="popExcel" Width="300" Height="300" Placement="Bottom" StaysOpen="False">
+            <Border Background="White" BorderBrush="Gray" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="tbfilter" BorderBrush="Cyan" Text="" Foreground="Black" BorderThickness="3" Height="30" Grid.Row="0" Margin="10"  KeyDown="Tbfilter_KeyDown"></TextBox>
+                    <Separator Grid.Row="0" VerticalAlignment="Bottom" Margin="10,0" Height="3"/>
+                    <ListBox x:Name="lbfilter" BorderBrush="Cyan" BorderThickness="5"  Grid.Row="1" Margin="10">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Is_Check}" Content="{Binding Title}"></CheckBox>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button x:Name="ApplyFilter" Click="ApplyFilter_Click" Grid.Row="2" Margin="10">ApplyFilter</Button>
+                </Grid>
+            </Border>
+        </Popup>
+
+    </StackPanel>
+
+
+   
+
+    
+
+
+
+
+    <!--<DataGrid ItemsSource="{ Binding Products}" AutoGenerateColumns="False"  MinRowHeight="26"
+      HeadersVisibility="All" AlternationCount="2" Height="411"  MaxWidth="1500"   Margin="35,66,-535,0" VerticalAlignment="Top" >
+
+
+        <DataGrid.Columns>
+            <DataGridTextColumn Width="50"
+				                    Binding="{Binding Id}"
+				                    Header="ID" />
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding WBSElement}"
+				                    Header="WBSElement" />
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding ProductNo}"
+				                    Header="ProductNo" />
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding ItemDescription}"
+				                    Header="ItemDescription" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding Specification}"
+				                    Header="Specification" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding MatrialNo}"
+				                    Header="MatrialNo" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding Description}"
+				                    Header="Description" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding Project}"
+				                    Header="Project" />
+
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding QtyReq}"
+				                    Header="QtyReq" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding UnitofMeasurment}"
+				                    Header="UnitofMeasurment" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding UnitWt}"
+				                    Header="UnitWt" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding WeightUnit}"
+				                    Header="WeightUnit" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding PurchasingDocument}"
+				                    Header="PurchasingDocument" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding Item}"
+				                    Header="Item" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding PurchaseOrderNo}"
+				                    Header="PurchaseOrderNo" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding UnitRatePrice}"
+				                    Header="UnitRatePrice" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding NetOrderPrice}"
+				                    Header="NetOrderPrice" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding Currency}"
+				                    Header="Currency" />
+
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding SupplierName}"
+				                    Header="SupplierName" />
+
+            <DataGridTextColumn     Width="150"
+				                    Binding="{Binding Destination}"
+				                    Header="Destination" />
+
+        </DataGrid.Columns>
+
+    </DataGrid>-->
+
+
+
+
+    <!--<syncfusion:SfDataGrid HorizontalAlignment="Left" Height="438" VerticalAlignment="Top" Width="1656"                          
                                        x:Name="dataGrid"
                                        ItemsSource="{Binding Products}"
                                        AllowFiltering="True"
@@ -66,7 +313,7 @@
 
         </syncfusion:SfDataGrid.Columns>
 
-    </syncfusion:SfDataGrid>
+    </syncfusion:SfDataGrid>-->
 
 
 
@@ -110,7 +357,7 @@
     </sb:SampleBrowserLayout>-->
 
 
-
+    
 
 
 

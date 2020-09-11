@@ -21,7 +21,7 @@ namespace EstimationTool.ViewModel
         private  IDataStore<Product> mockdata;
 
         public ObservableCollection<Product> Products { get; set; }
-        public ICommand LoadItemsCommand { get; set; }
+     
 
 
         public bool IsRefreshing
@@ -65,11 +65,11 @@ namespace EstimationTool.ViewModel
 
         }
 
-        [Inject]
-        public void SetDataService(IDataStore<Product> Mockdata)
-        {
-            mockdata = Mockdata;
-        }
+        //[Inject]
+        //public void SetDataService(IDataStore<Product> Mockdata)
+        //{
+        //    mockdata = Mockdata;
+        //}
 
         async Task ExecuteLoadItemsCommand()
         {
