@@ -76,7 +76,7 @@
 
                                     </TextBlock>
 
-                                    <Button x:Name="btnfilter" Click="Btnfilter_Click"
+                                    <Button x:Name="btnfilter" Click="Btnfilter_Click" HorizontalContentAlignment="Right"
                                         HorizontalAlignment="Right" BorderBrush="Transparent" Background="Transparent"  Margin="0,-2" >
 
                                         <materialDesign:PackIcon Kind="Filter" Foreground="BlueViolet"  BorderThickness="0" BorderBrush="Transparent" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
@@ -94,87 +94,89 @@
 
 
             <DataGrid.Columns>
-                
-                
-                <DataGridTextColumn 
-         
-                                    Width="200"
+               
+
+                <materialDesign:DataGridTextColumn 
+                    
+                                    Width="Auto"
+               
 				                    Binding="{Binding Id}"                                    
 				                    Header="ID" />
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn    
+                                     Width="Auto"
                                     
 				                    Binding="{Binding WBSElement}"
 				                    Header="WBSElement" />
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding ProductNo}"
 				                    Header="ProductNo" />
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding ItemDescription}"
 				                    Header="ItemDescription" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Specification}"
 				                    Header="Specification" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding MatrialNo}"
 				                    Header="MatrialNo" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Description}"
 				                    Header="Description" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Project}"
 				                    Header="Project" />
 
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding QtyReq}"
 				                    Header="QtyReq" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding UnitofMeasurment}"
 				                    Header="UnitofMeasurment" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding UnitWt}"
 				                    Header="UnitWt" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding WeightUnit}"
 				                    Header="WeightUnit" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding PurchasingDocument}"
 				                    Header="PurchasingDocument" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Item}"
 				                    Header="Item" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding PurchaseOrderNo}"
 				                    Header="PurchaseOrderNo" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding UnitRatePrice}"
 				                    Header="UnitRatePrice" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding NetOrderPrice}"
 				                    Header="NetOrderPrice" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Currency}"
 				                    Header="Currency" />
 
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding SupplierName}"
 				                    Header="SupplierName" />
 
-                <DataGridTextColumn     Width="200"
+                <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Destination}"
 				                    Header="Destination" />
                
