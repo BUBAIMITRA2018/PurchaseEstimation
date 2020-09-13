@@ -66,7 +66,9 @@ namespace Estimationtool.ViewModels
                                                                                           AreCredentialsInvalid = !UserAuthenticated(Username, Password);
                                                                                           if (AreCredentialsInvalid) return;
 
-                                                                                          App.Current.MainWindow = new MainWindow();
+                                                                                          MainWindow window = new MainWindow();
+                                                                                          window.Show();
+                                                                                         
 
                                                                                       }));
             }

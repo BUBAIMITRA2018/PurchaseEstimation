@@ -1,6 +1,8 @@
 ﻿using Estimationtool.Models;
 using Estimationtool.Services;
+using Estimationtool.ViewModels;
 using EstimationTool.HomeScreen;
+using EstimationTool.LoginScreen;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,7 +21,12 @@ namespace EstimationTool
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-          
+            LogIn window = new LogIn();
+            LoginViewModel vm = new LoginViewModel();
+            window.DataContext = vm;
+            window.Show();
+
+
 
         }
     }
