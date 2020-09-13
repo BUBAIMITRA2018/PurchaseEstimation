@@ -200,9 +200,6 @@
     <Compile Include="HomeScreen\popupexcel.xaml.cs">
       <DependentUpon>popupexcel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HomeScreen\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LoginScreen\LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
@@ -222,10 +219,6 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Page Include="HomeScreen\popupexcel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HomeScreen\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
