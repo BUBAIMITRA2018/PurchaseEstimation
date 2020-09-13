@@ -32,12 +32,15 @@ namespace EstimationTool.HomeScreen
         HomeViewModel HV;
         ServiceLocator servicelocator = new ServiceLocator();
         CollectionViewSource vdata;
+        private ObservableCollection<string> converprod;
         Dictionary<string, ObservableCollection<FilterObj>> filters;
         public UserControlHome()
         {
             InitializeComponent();
 
             filters = new Dictionary<string, ObservableCollection<FilterObj>>();
+
+            var products = servicelocator.HomeViewModel.Products;
 
             vdata = new CollectionViewSource { Source = servicelocator.HomeViewModel.Products };
 
@@ -177,12 +180,12 @@ namespace EstimationTool.HomeScreen
                     filters.TryGetValue(colName, out fltcurrent);
                 }
                 else
-                {
-                   
+                {                  
 
 
                     foreach (Product p in vdata.View)
                     {
+
                         string value = p.GetType().GetProperty(colName).GetValue(p, null).ToString();
 
                         if (value != null)
@@ -205,12 +208,16 @@ namespace EstimationTool.HomeScreen
 
                             }
 
-                            
+
                         }
 
-                    }
 
-                    
+
+                       
+                            
+                       
+
+                    }                  
 
 
                 }
@@ -230,8 +237,7 @@ namespace EstimationTool.HomeScreen
                 if (!filters.ContainsKey(colName))
                 {
                     filters.Add(colName, fltcurrent);
-                }            
-
+                }          
 
 
             }

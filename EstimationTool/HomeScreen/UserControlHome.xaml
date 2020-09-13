@@ -94,91 +94,232 @@
 
 
             <DataGrid.Columns>
-               
 
-                <materialDesign:DataGridTextColumn 
-                    
-                                    Width="Auto"
-               
-				                    Binding="{Binding Id}"                                    
-				                    Header="ID" />
+
+                <materialDesign:DataGridTextColumn materialDesign:DataGridAssist.EnableEditBoxAssist="True"  Width="Auto"  Binding="{Binding Id}" Header="Id" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </materialDesign:DataGridTextColumn>
+
+
                 <materialDesign:DataGridTextColumn    
-                                     Width="Auto"
-                                    
+                                    Width="Auto"                                 
 				                    Binding="{Binding WBSElement}"
-				                    Header="WBSElement" />
+				                    Header="WBSElement">
+
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+
+                </materialDesign:DataGridTextColumn>
+
+
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding ProductNo}"
-				                    Header="ProductNo" />
+				                    Header="ProductNo" >
+
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </materialDesign:DataGridTextColumn>
+
+
+
+
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding ItemDescription}"
-				                    Header="ItemDescription" />
+				                    Header="ItemDescription" >
+
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Specification}"
-				                    Header="Specification" />
+				                    Header="Specification" >
+
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding MatrialNo}"
-				                    Header="MatrialNo" />
+				                    Header="MatrialNo" >
+                    
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Description}"
-				                    Header="Description" />
+				                    Header="Description" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>                   
+                    
+                </materialDesign:DataGridTextColumn>
+
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Project}"
-				                    Header="Project" />
+				                    Header="Project" >
+
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </materialDesign:DataGridTextColumn>
 
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding QtyReq}"
-				                    Header="QtyReq" />
+				                    Header="QtyReq" >
+                    
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding UnitofMeasurment}"
-				                    Header="UnitofMeasurment" />
+				                    Header="UnitofMeasurment" >
+
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding UnitWt}"
-				                    Header="UnitWt" />
+				                    Header="UnitWt" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding WeightUnit}"
-				                    Header="WeightUnit" />
+				                    Header="WeightUnit" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding PurchasingDocument}"
-				                    Header="PurchasingDocument" />
+				                    Header="PurchasingDocument" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Item}"
-				                    Header="Item" />
+				                    Header="Item" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding PurchaseOrderNo}"
-				                    Header="PurchaseOrderNo" />
+				                    Header="PurchaseOrderNo" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding UnitRatePrice}"
-				                    Header="UnitRatePrice" />
+				                    Header="UnitRatePrice" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding NetOrderPrice}"
-				                    Header="NetOrderPrice" />
+				                    Header="NetOrderPrice" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Currency}"
-				                    Header="Currency" />
+				                    Header="Currency" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding SupplierName}"
-				                    Header="SupplierName" />
+				                    Header="SupplierName" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
 
                 <materialDesign:DataGridTextColumn     Width="Auto"
 				                    Binding="{Binding Destination}"
-				                    Header="Destination" />
+				                    Header="Destination" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </materialDesign:DataGridTextColumn>
                
 
             </DataGrid.Columns>
