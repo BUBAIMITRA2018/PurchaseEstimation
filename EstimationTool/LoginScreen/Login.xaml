@@ -64,7 +64,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center" Foreground="#707070"/>
-                <TextBox Text="{Binding Password}"  materialDesign:HintAssist.Hint="Password" Width="250" Margin="5"/>
+                <TextBox Text="{Binding Password}"     FontFamily="pack://application:,,,/Resources/#password"  materialDesign:HintAssist.Hint="Password" Width="250" Margin="5"/>
             </StackPanel>
             <Grid>
                 <CheckBox Content="Remember me" Margin="5,10" Foreground="#707070"/>

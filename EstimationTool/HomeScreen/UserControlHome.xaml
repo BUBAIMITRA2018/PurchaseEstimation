@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
                 <ResourceDictionary Source="/EstimationTool;component/Resources/ScrollViewerStyle.xaml" />
                 <ResourceDictionary Source="/EstimationTool;component/Resources/DataGridStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Hyperlink.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.ComboBox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
@@ -78,7 +79,7 @@
                         <Setter.Value>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Visibility="Visible"  Background ="Transparent" >
-                                    <TextBlock  Text="{Binding}"   Background="Transparent" HorizontalAlignment="Center" Margin="10,5"   >
+                                    <TextBlock  Text="{Binding}" Style="{StaticResource MaterialDesignCaptionTextBlock}"  Background="Transparent" HorizontalAlignment="Center" Margin="10,5"   >
 
                                     </TextBlock>
 
@@ -253,7 +254,7 @@
 				                    Header="PurchasingDocument" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="HorizontalAlignment" Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
@@ -341,7 +342,7 @@
                         <RowDefinition />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBox x:Name="tbfilter" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" BorderBrush="Cyan" Text="" Foreground="Black" BorderThickness="3" Height="30" Grid.Row="0" Margin="10"  KeyDown="Tbfilter_KeyDown"></TextBox>
+                    <TextBox x:Name="tbfilter"  BorderBrush="Cyan" Text="" Foreground="Black" BorderThickness="3" Height="30" Grid.Row="0" Margin="10"  KeyDown="Tbfilter_KeyDown"></TextBox>
                     <Separator Grid.Row="0" VerticalAlignment="Bottom" Margin="10,0" Height="3"/>
                     <ListBox x:Name="lbfilter" BorderBrush="Cyan" BorderThickness="5"  Grid.Row="1" Margin="10">
                         <ListBox.ItemTemplate>
