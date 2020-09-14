@@ -168,6 +168,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -196,6 +197,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\AsyncRelayCommand.cs" />
     <Compile Include="Helper\DelegateCommand .cs" />
     <Compile Include="HomeScreen\popupexcel.xaml.cs">
       <DependentUpon>popupexcel.xaml</DependentUpon>
@@ -204,6 +206,7 @@
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\FilterObj.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Ninject\ServiceLocator.cs" />
     <Compile Include="Ninject\ServiceModule.cs" />
     <Compile Include="RegistrationScreen\UserControlRegistration.xaml.cs">
@@ -215,7 +218,9 @@
     <Compile Include="Service\IDataStore.cs" />
     <Compile Include="Service\IEventAggregator.cs" />
     <Compile Include="Service\ISqlConnectionInterface.cs" />
+    <Compile Include="Service\IUserStore.cs" />
     <Compile Include="Service\MockDataStore.cs" />
+    <Compile Include="Service\MockUserData.cs" />
     <Compile Include="SQLData\DataAcess.cs" />
     <Compile Include="SQLData\DbConn.cs" />
     <Compile Include="SQLData\IDbConn.cs" />

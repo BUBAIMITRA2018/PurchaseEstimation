@@ -1,5 +1,7 @@
 ﻿using Estimationtool.Models;
 using Estimationtool.Services;
+using EstimationTool.Models;
+using EstimationTool.Service;
 using Ninject.Modules;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,7 @@ namespace EstimationTool.Ninject
         public override void Load()
         {
             Bind<IDataStore<Product>>().To<MockDataStore>();
+            Bind<IUserStore<User>>().To<MockUserData>();
 
         }
     }

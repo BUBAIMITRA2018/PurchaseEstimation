@@ -1,4 +1,5 @@
-﻿using EstimationTool.ViewModel;
+﻿using Estimationtool.ViewModels;
+using EstimationTool.ViewModel;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -11,16 +12,23 @@ namespace EstimationTool.Ninject
   public  class ServiceLocator
     {
 
-        private readonly IKernel kernel;
+        private readonly IKernel kernel_1;
+        private readonly IKernel kernel_2;
 
         public ServiceLocator()
         {
-            kernel = new StandardKernel(new ServiceModule());
+            kernel_1 = new StandardKernel(new ServiceModule());
+            kernel_2 = new StandardKernel(new ServiceModule());
         }
 
         public HomeViewModel HomeViewModel
         {
-            get { return kernel.Get<HomeViewModel>(); }
+            get { return kernel_1.Get<HomeViewModel>(); }
+        }
+
+        public LoginViewModel LoginViewModel
+        {
+            get { return kernel_1.Get<LoginViewModel>(); }
         }
     }
 }

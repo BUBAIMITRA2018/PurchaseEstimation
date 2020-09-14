@@ -5,21 +5,28 @@ using System.Windows.Input;
 
 using System.Threading.Tasks;
 using EstimationTool;
+using EstimationTool.Service;
+using EstimationTool.Models;
+using EstimationTool.Helper;
+using System;
 
 namespace Estimationtool.ViewModels
 {
-    class LoginViewModel:BaseViewModel
+ public   class LoginViewModel:BaseViewModel
     {
 
         private string _username;
         private string _password;
         private bool _areCredentialsInvalid;
-     
+        private IUserStore<User> _usersdata;
 
-        public LoginViewModel()
+
+        public LoginViewModel(IUserStore<User> usersdata)
         {
 
             AreCredentialsInvalid = false;
+
+            _usersdata = usersdata;
 
         }
 
@@ -60,34 +67,56 @@ namespace Estimationtool.ViewModels
         {
             get
             {
-                return authenticateCommand ?? (authenticateCommand = new DelegateCommand<object>(X =>
-                                                                                      {
-
-                                                                                          AreCredentialsInvalid = !UserAuthenticated(Username, Password);
-                                                                                          if (AreCredentialsInvalid) return;
-
-                                                                                          MainWindow window = new MainWindow();
-                                                                                          window.Show();
-                                                                                         
-
-                                                                                      }));
-            }
-
-
-
+                return authenticateCommand ?? (authenticateCommand = new AsyncRelayCommand(X => doStuff2()));
+            }                                                                                  
+  
         }
-     
 
-        private bool UserAuthenticated(string username, string password)
+        private async Task doStuff2()
         {
+            AreCredentialsInvalid = await UserAuthenticated(Username, Password);
+            if (!AreCredentialsInvalid) return;
+
+            MainWindow window = new MainWindow();
+            window.Show();
+        }
+
+
+
+
+        private async Task<bool> UserAuthenticated(string username, string password)
+        {
+            bool is_match = false; 
             if (string.IsNullOrEmpty(username)
                 || string.IsNullOrEmpty(password))
             {
-                return false;
+                is_match = false;
+
             }
 
-            return username.ToLowerInvariant() == "joe"
-              && password.ToLowerInvariant() == "secret";
-        }
+            var users = await _usersdata.GetItemsAsync();
+
+            foreach (var user in users)
+            {
+              is_match = username.ToLowerInvariant() == user.Username && password.ToLowerInvariant() == user.Password;
+
+                if (is_match)
+                    {
+                    break;
+
+                    }
+
+
+            }
+
+
+            return is_match;
+
+
+
+       
+
+
+    }
     }
 }

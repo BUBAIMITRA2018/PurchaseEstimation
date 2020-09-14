@@ -1,4 +1,5 @@
 ﻿using Estimationtool.Models;
+using EstimationTool.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace Estimationtool.Data
         }
 
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<User> users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
