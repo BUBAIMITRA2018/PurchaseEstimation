@@ -18,7 +18,7 @@ namespace EstimationTool.RegistrationScreen
     /// <summary>
     /// Interaction logic for UserControlRegistration.xaml
     /// </summary>
-    public partial class UserControlRegistration : UserControl
+    public partial class UserControlRegistration : Window
     {
         public UserControlRegistration()
         {

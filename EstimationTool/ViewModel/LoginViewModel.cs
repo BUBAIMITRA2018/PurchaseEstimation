@@ -9,6 +9,7 @@ using EstimationTool.Service;
 using EstimationTool.Models;
 using EstimationTool.Helper;
 using System;
+using EstimationTool.RegistrationScreen;
 
 namespace Estimationtool.ViewModels
 {
@@ -49,6 +50,25 @@ namespace Estimationtool.ViewModels
 
                
             }
+        }
+
+
+        private ICommand registrationcommand;
+        public ICommand Registrationcommand
+        {
+            get
+            {
+                return registrationcommand ?? (registrationcommand = new DelegateCommand<object>(X =>
+                {
+                    UserControlRegistration window = new UserControlRegistration();
+                    window.Show();
+
+
+                }));
+            }
+
+
+
         }
 
         public bool AreCredentialsInvalid

@@ -1,4 +1,5 @@
 ﻿using Estimationtool.ViewModels;
+using EstimationTool.RegistrationScreen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,15 @@ namespace EstimationTool.LoginScreen
         {
             InitializeComponent();
            
+
+        }
+
+  
+
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            UserControlRegistration window = new UserControlRegistration();
+            window.Show();
 
         }
     }
