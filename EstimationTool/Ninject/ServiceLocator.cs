@@ -14,11 +14,13 @@ namespace EstimationTool.Ninject
 
         private readonly IKernel kernel_1;
         private readonly IKernel kernel_2;
+        private readonly IKernel kernel_3;
 
         public ServiceLocator()
         {
             kernel_1 = new StandardKernel(new ServiceModule());
             kernel_2 = new StandardKernel(new ServiceModule());
+            kernel_3 = new StandardKernel(new ServiceModule());
         }
 
         public HomeViewModel HomeViewModel
@@ -28,7 +30,15 @@ namespace EstimationTool.Ninject
 
         public LoginViewModel LoginViewModel
         {
-            get { return kernel_1.Get<LoginViewModel>(); }
+            get { return kernel_2.Get<LoginViewModel>(); }
         }
+
+
+        public RegistrationViewModel RegistrationViewModel
+        {
+            get { return kernel_3.Get< RegistrationViewModel> (); }
+        }
+
+
     }
 }

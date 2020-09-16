@@ -209,8 +209,8 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Ninject\ServiceLocator.cs" />
     <Compile Include="Ninject\ServiceModule.cs" />
-    <Compile Include="RegistrationScreen\UserControlRegistration.xaml.cs">
-      <DependentUpon>UserControlRegistration.xaml</DependentUpon>
+    <Compile Include="RegistrationScreen\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\DataGridStyle.xaml.cs">
       <DependentUpon>DataGridStyle.xaml</DependentUpon>
@@ -225,6 +225,7 @@
     <Compile Include="SQLData\DbConn.cs" />
     <Compile Include="SQLData\IDbConn.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Page Include="HomeScreen\popupexcel.xaml">
       <SubType>Designer</SubType>
@@ -255,7 +256,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RegistrationScreen\UserControlRegistration.xaml">
+    <Page Include="RegistrationScreen\Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -32,28 +32,7 @@
 
 
 
-        <!--<Rectangle RadiusY="8" RadiusX="8" Fill="White"/>
-
-        <Image Source="/EstimationTool;component/Assets/SMSSteel_1.jpg"  Margin="310,0,0,0" Stretch="Fill" IsEnabled="False" />
-
-
-        <Rectangle Margin="310,0,-3,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.08"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.523"/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#e8e3cf" Offset="1"/>
-                    <GradientStop Color="#CCEA4646"/>
-                    <GradientStop Color="#CCB89128" Offset="0.566"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>-->
+      
 
         <StackPanel  Background="#e0e0e0">
 

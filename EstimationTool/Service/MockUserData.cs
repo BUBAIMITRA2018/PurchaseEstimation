@@ -11,10 +11,11 @@ namespace EstimationTool.Service
     public class MockUserData : IUserStore<User>
     {
         List<User> listofusers;
+        DataAcess dataacess;
 
         public MockUserData()
         {
-            DataAcess dataacess = new DataAcess();
+            dataacess = new DataAcess();
             listofusers = new List<User>();
 
             var users = dataacess.users.ToList();
@@ -27,7 +28,13 @@ namespace EstimationTool.Service
 
         }
 
-       
+        public async Task<bool> AddItemAsync(User item)
+        {
+            dataacess.users.Add(item);
+            dataacess.SaveChangesAsync();
+            return await Task.FromResult(true);
+
+        }
 
         public async Task<IEnumerable<User>> GetItemsAsync(bool forceRefresh)
         {

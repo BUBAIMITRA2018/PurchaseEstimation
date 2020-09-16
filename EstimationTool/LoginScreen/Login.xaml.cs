@@ -33,8 +33,9 @@ namespace EstimationTool.LoginScreen
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            UserControlRegistration window = new UserControlRegistration();
+            Registration window = new Registration();
             window.Show();
+            this.Close();
 
         }
     }

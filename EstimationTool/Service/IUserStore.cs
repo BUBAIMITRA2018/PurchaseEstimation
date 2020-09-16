@@ -10,7 +10,7 @@ namespace EstimationTool.Service
     public interface IUserStore<T>
     {
     Task<IEnumerable<User>> GetItemsAsync(bool forceRefresh = false);
-
+    Task<bool> AddItemAsync(T item);
 
 
     }

@@ -10,10 +10,11 @@ using EstimationTool.Models;
 using EstimationTool.Helper;
 using System;
 using EstimationTool.RegistrationScreen;
+using System.Windows;
 
 namespace Estimationtool.ViewModels
 {
- public   class LoginViewModel:BaseViewModel
+ public   class RegistrationViewModel : BaseViewModel
     {
 
         private string _username;
@@ -22,7 +23,7 @@ namespace Estimationtool.ViewModels
         private IUserStore<User> _usersdata;
 
 
-        public LoginViewModel(IUserStore<User> usersdata)
+        public RegistrationViewModel(IUserStore<User> usersdata)
         {
 
             AreCredentialsInvalid = false;
@@ -53,24 +54,7 @@ namespace Estimationtool.ViewModels
         }
 
 
-        private ICommand registrationcommand;
-        public ICommand Registrationcommand
-        {
-            get
-            {
-                return registrationcommand ?? (registrationcommand = new DelegateCommand<object>(X =>
-                {
-                    Registration window = new Registration();
-                    window.Show();
-
-
-                }));
-            }
-
-
-
-        }
-
+       
         public bool AreCredentialsInvalid
         {
             get => _areCredentialsInvalid;
@@ -94,17 +78,14 @@ namespace Estimationtool.ViewModels
 
         private async Task doStuff2()
         {
-            AreCredentialsInvalid = await UserAuthenticated(Username, Password);
-            if (!AreCredentialsInvalid) return;
-
-            MainWindow window = new MainWindow();
-            window.Show();
+            await UserRegistration(Username, Password);
+     
         }
 
 
 
 
-        private async Task<bool> UserAuthenticated(string username, string password)
+        private async Task UserRegistration(string username, string password)
         {
             bool is_match = false; 
             if (string.IsNullOrEmpty(username)
@@ -125,18 +106,37 @@ namespace Estimationtool.ViewModels
                     break;
 
                     }
+            }
 
+
+            if (is_match)
+            {
+                MessageBoxResult result = MessageBox.Show("Email Id already Exist");
+                is_match = false;
+
+            }
+            else
+            {
+                User objCompanyUser = new User();
+                objCompanyUser.Username = username;
+                objCompanyUser.Password = Password;
+
+                 bool done = await _usersdata.AddItemAsync(objCompanyUser);
+
+                if (done)
+                {
+                    MessageBoxResult result = MessageBox.Show("User added is sucessfully");
+                    done = false;
+
+                }
 
             }
 
 
-            return is_match;
 
 
 
-       
 
-
-    }
+        }
     }
 }
