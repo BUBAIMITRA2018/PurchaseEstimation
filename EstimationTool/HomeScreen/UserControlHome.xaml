@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-              DataContext="{Binding Path=HomeViewModel, Source={StaticResource ServiceLocator}}"
+              
              x:Class="EstimationTool.HomeScreen.UserControlHome"
              mc:Ignorable="d"
              d:DesignHeight="1200" d:DesignWidth="760"  >
+
+    <!--DataContext="{Binding Path=HomeViewModel, Source={StaticResource ServiceLocator}}"-->
 
 
 
@@ -32,34 +34,42 @@
 
     <StackPanel>
 
-        <DataGrid  HorizontalAlignment="Left" Height="344" VerticalAlignment="Top" Width="1630"   AlternationCount="2"    AutoGenerateColumns="False"                
-        ItemsSource="{ Binding Products}" x:Name="dataGrid" Margin="274,94,-1126,0">
+        <DataGrid  HorizontalAlignment="Left" Height="943" VerticalAlignment="Stretch" Width="1894"   AlternationCount="2"    AutoGenerateColumns="False"                
+         ItemsSource="{Binding Products}" SelectedItem="{Binding IsSelected}" x:Name="dataGrid" Margin="10,75,-1144,0">
 
-            <DataGrid.Resources>
+            <!--<DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Height" Value="Auto"/>
+                </Style>
+            </DataGrid.RowStyle>-->
+            <!--Setter Property="SeparatorBrush" Value="DarkRed" />-->
+                <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalContentAlignment" Value="Center" />
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                    <Setter Property="Height" Value="35" />
-                    <Setter Property="SeparatorBrush" Value="DarkRed" />
-                    <Setter Property="FontWeight" Value="Black" />
+                    <Setter Property="Height" Value="50" />
+                    <!--<Setter Property="FontStyle" Value= />-->                   
+                  
+                    <Setter Property="FontSize" Value="50"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
 
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
-                                <Grid>                                    
+                                <Grid>
                                     <Border x:Name="columnHeaderBorder"
 						            BorderThickness="1"
 						            Padding="3,0,3,0">
                                         <Border.BorderBrush>
                                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                                <GradientStop Offset="0" Color="#A5A5A5" />
-                                                <GradientStop Offset="1" Color="#4B4B4B" />
+                                                <GradientStop Offset="0" Color="#ecebf2" />
+                                                <GradientStop Offset="1" Color="#ecebf2" />
                                             </LinearGradientBrush>
                                         </Border.BorderBrush>
                                         <Border.Background>
                                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                                <GradientStop Offset="0" Color="#0055ff" />
-                                                <GradientStop Offset="1" Color="#00ffee" />
+                                                <GradientStop Offset="0" Color="#575757" />
+                                                <GradientStop Offset="1" Color="#575757" />
                                             </LinearGradientBrush>
                                         </Border.Background>
                                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -73,20 +83,22 @@
 
 
 
-                    <Setter Property="ContentTemplate">                   
-                     
-                    
+                    <Setter Property="ContentTemplate">
+
+
                         <Setter.Value>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Visibility="Visible"  Background ="Transparent" >
-                                    <TextBlock  Text="{Binding}" Style="{StaticResource MaterialDesignCaptionTextBlock}"  Background="Transparent" HorizontalAlignment="Center" Margin="10,5"   >
+                                    <TextBlock  Text="{Binding}" Style="{StaticResource MaterialDesignCaptionTextBlock}" FontWeight="Bold" FontSize="18" Foreground="White" Background="Transparent" HorizontalAlignment="Center" Margin="0,5"   >
 
                                     </TextBlock>
 
-                                    <Button x:Name="btnfilter" Click="Btnfilter_Click" HorizontalContentAlignment="Right"
+                                    <Button x:Name="btnfilter"  Click="Btnfilter_Click" HorizontalContentAlignment="Right" 
                                         HorizontalAlignment="Right" BorderBrush="Transparent" Background="Transparent"  Margin="0,-2" >
 
-                                        <materialDesign:PackIcon Kind="Filter" Foreground="BlueViolet"  BorderThickness="0" BorderBrush="Transparent" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+                                        <materialDesign:PackIcon x:Name="FilterIcon" Kind="Filter" Foreground="White"  BorderThickness="0" BorderBrush="Transparent" HorizontalContentAlignment="Right" VerticalAlignment="Center">
+                                      
+                                        </materialDesign:PackIcon>
 
                                     </Button>
 
@@ -100,15 +112,23 @@
             </DataGrid.Resources>
 
 
-            <DataGrid.Columns>
+            <DataGrid.Columns  >
 
 
-                <materialDesign:DataGridTextColumn   Width="Auto"  Binding="{Binding Id}" Header="Id" >
 
-                   
+                <materialDesign:DataGridTextColumn  IsReadOnly="True"  Width="70"   Binding="{Binding ID}" Header="ID" >
+
+
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
                             <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
 
@@ -116,13 +136,22 @@
 
 
                 <materialDesign:DataGridTextColumn    
-                                    Width="Auto"                                 
+                                    Width="200"                                
+                    
+                                    IsReadOnly="True"
 				                    Binding="{Binding WBSElement}"
-				                    Header="WBSElement">
+				                    Header="WBS Element">
 
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
                             <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
 
@@ -130,13 +159,22 @@
                 </materialDesign:DataGridTextColumn>
 
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="180"
 				                    Binding="{Binding ProductNo}"
-				                    Header="ProductNo" >
+                                                     
+                                    IsReadOnly="True"
+				                    Header="Product No" >
 
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
 
@@ -145,194 +183,336 @@
 
 
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn Width="220"
 				                    Binding="{Binding ItemDescription}"
-				                    Header="ItemDescription" >
+                                                   
+                                    IsReadOnly="True"
+				                    Header="Item Desc" >
 
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
 
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="180"
 				                    Binding="{Binding Specification}"
+                                    IsReadOnly="True"
 				                    Header="Specification" >
 
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
 
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn    Width="Auto"
+                <materialDesign:DataGridTextColumn    Width="150"
 				                    Binding="{Binding MatrialNo}"
-				                    Header="MatrialNo" >
-                    
+                                    IsReadOnly="True"
+				                    Header="Material No" >
+
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
 
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="200"
 				                    Binding="{Binding Description}"
+                                    IsReadOnly="True"
 				                    Header="Description" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
-                    </DataGridTextColumn.ElementStyle>                   
-                    
+                    </DataGridTextColumn.ElementStyle>
+
                 </materialDesign:DataGridTextColumn>
 
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="150"
 				                    Binding="{Binding Project}"
+                                    IsReadOnly="True"
 				                    Header="Project" >
 
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
 
                 </materialDesign:DataGridTextColumn>
 
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="120"
 				                    Binding="{Binding QtyReq}"
-				                    Header="QtyReq" >
-                    
+                                    IsReadOnly="True"
+				                    Header="Qty Req" >
+
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="90"
 				                    Binding="{Binding UnitofMeasurment}"
-				                    Header="UnitofMeasurment" >
+                                    IsReadOnly="True"                  
+				                    Header="Unit" >
 
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
 
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="110"
 				                    Binding="{Binding UnitWt}"
 				                    Header="UnitWt" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="150"
 				                    Binding="{Binding WeightUnit}"
+                                    IsReadOnly="True"
 				                    Header="WeightUnit" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="200"
 				                    Binding="{Binding PurchasingDocument}"
-				                    Header="PurchasingDocument" >
+                                    IsReadOnly="True"
+				                    Header="Purchasing Doc" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
                             <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="90"
 				                    Binding="{Binding Item}"
+                                    IsReadOnly="True"
 				                    Header="Item" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="180"
 				                    Binding="{Binding PurchaseOrderNo}"
-				                    Header="PurchaseOrderNo" >
+                                    IsReadOnly="True"
+				                    Header="Purchase Date" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="180"
+                                    IsReadOnly="True"
 				                    Binding="{Binding UnitRatePrice}"
-				                    Header="UnitRatePrice" >
+				                    Header="Unit Rate Price" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="180"
+                                    IsReadOnly="True"
 				                    Binding="{Binding NetOrderPrice}"
-				                    Header="NetOrderPrice" >
+				                    Header="Net Order Price" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="150"
 				                    Binding="{Binding Currency}"
 				                    Header="Currency" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="220"
 				                    Binding="{Binding SupplierName}"
-				                    Header="SupplierName" >
+                                    IsReadOnly="True"
+				                    Header="Supplier Name" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
 
-                <materialDesign:DataGridTextColumn     Width="Auto"
+                <materialDesign:DataGridTextColumn     Width="180"
 				                    Binding="{Binding Destination}"
+                                    IsReadOnly="True"
 				                    Header="Destination" >
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter     Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="Height" Value="Auto"></Setter>
+                            <Setter Property="Margin" Value="5,20,5,20"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="FontWeight" Value="Medium"></Setter>
+                            <Setter Property="FontFamily" Value="Helvetica"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="VerticalAlignment"  Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
-               
+
 
             </DataGrid.Columns>
+            
+            
         </DataGrid>
+
+        <Button x:Name="RefreshData" Width="100" Height="40" Content="Update" Margin="140,5,60,0" Command="{Binding RefreshCommand}" Click="RefreshData_Click" />
+
+
 
         <Popup  x:Name="popExcel" Width="300" Height="300" Placement="Bottom"  StaysOpen="False">
             <Border Background="White" BorderBrush="Gray" >
@@ -341,212 +521,32 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBox x:Name="tbfilter"  BorderBrush="Cyan" Text="" Foreground="Black" BorderThickness="3" Height="30" Grid.Row="0" Margin="10"  KeyDown="Tbfilter_KeyDown"></TextBox>
+                    <TextBox x:Name="tbfilter"  BorderBrush="Gray" Text=""  Foreground="Black" BorderThickness="3" Height="30" Grid.Row="0" Margin="10" TextChanged="Tbfilter_TextChanged" KeyDown="Tbfilter_KeyDown"></TextBox>
                     <Separator Grid.Row="0" VerticalAlignment="Bottom" Margin="10,0" Height="3"/>
-                    <ListBox x:Name="lbfilter" BorderBrush="Cyan" BorderThickness="5"  Grid.Row="1" Margin="10">
+                    <ListBox x:Name="lbfilter" BorderBrush="Black"  BorderThickness="0"  Grid.Row="1" Margin="10">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <CheckBox Style="{StaticResource MaterialDesignFilterChipOutlineCheckBox}" IsChecked="{Binding Is_Check}" Content="{Binding Title}"></CheckBox>
+                                <CheckBox Style="{StaticResource MaterialDesignAccentCheckBox}" Background="Gray" 
+                                          IsChecked="{Binding Is_Check, UpdateSourceTrigger=PropertyChanged}"   Content="{Binding Title}"></CheckBox>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Button x:Name="ApplyFilter" Click="ApplyFilter_Click" Grid.Row="2" Margin="10">ApplyFilter</Button>
+                    <Button x:Name="ApplyFilter" Style="{StaticResource MaterialDesignRaisedButton}"  Foreground="White" Command="{Binding ApplyFilterCommand }" Background="#575757" Click="ApplyFilter_Click" Grid.Row="2" Margin="10">Apply Filter</Button>
+                    <Button x:Name="ClearFilter" Style="{StaticResource MaterialDesignRaisedButton}" Foreground="White" Background="#575757" Click="ClearFilter_Click" Grid.Row="3" Margin="10">Remove Filter</Button>
                 </Grid>
             </Border>
         </Popup>
 
     </StackPanel>
 
-
-   
-
-    
-
-
-
-    <!--<DataGrid ItemsSource="{ Binding Products}" AutoGenerateColumns="False"  MinRowHeight="26"
-      HeadersVisibility="All" AlternationCount="2" Height="411"  MaxWidth="1500"   Margin="35,66,-535,0" VerticalAlignment="Top" >
-
-
-        <DataGrid.Columns>
-            <DataGridTextColumn Width="50"
-				                    Binding="{Binding Id}"
-				                    Header="ID" />
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding WBSElement}"
-				                    Header="WBSElement" />
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding ProductNo}"
-				                    Header="ProductNo" />
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding ItemDescription}"
-				                    Header="ItemDescription" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding Specification}"
-				                    Header="Specification" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding MatrialNo}"
-				                    Header="MatrialNo" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding Description}"
-				                    Header="Description" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding Project}"
-				                    Header="Project" />
-
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding QtyReq}"
-				                    Header="QtyReq" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding UnitofMeasurment}"
-				                    Header="UnitofMeasurment" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding UnitWt}"
-				                    Header="UnitWt" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding WeightUnit}"
-				                    Header="WeightUnit" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding PurchasingDocument}"
-				                    Header="PurchasingDocument" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding Item}"
-				                    Header="Item" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding PurchaseOrderNo}"
-				                    Header="PurchaseOrderNo" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding UnitRatePrice}"
-				                    Header="UnitRatePrice" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding NetOrderPrice}"
-				                    Header="NetOrderPrice" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding Currency}"
-				                    Header="Currency" />
-
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding SupplierName}"
-				                    Header="SupplierName" />
-
-            <DataGridTextColumn     Width="150"
-				                    Binding="{Binding Destination}"
-				                    Header="Destination" />
-
-        </DataGrid.Columns>
-
-    </DataGrid>-->
-
-
-
-
-    <!--<syncfusion:SfDataGrid HorizontalAlignment="Left" Height="438" VerticalAlignment="Top" Width="1656"                          
-                                       x:Name="dataGrid"
-                                       ItemsSource="{Binding Products}"
-                                       AllowFiltering="True"
-                                       AllowGrouping="True"
-                                       ColumnSizer="Star"
-                                       NavigationMode="Row"
-                                       AutoGenerateColumns="False"                                     
-                                       ShowGroupDropArea="True" Margin="258,62,-1154,0"  >
-
-        <syncfusion:SfDataGrid.Resources>
-            <ResourceDictionary>
-                <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="/Syncfusion.SfGrid.WPF;component/Styles/Styles.xaml" />
-                </ResourceDictionary.MergedDictionaries>
-            </ResourceDictionary>
-        </syncfusion:SfDataGrid.Resources>
-
-
-        <syncfusion:SfDataGrid.Columns>
-            <syncfusion:GridTextColumn HeaderText="ID" MappingName="Id" Width="150" TextAlignment="Center"  HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="WBSElement" MappingName="WBSElement" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="ProductNo" MappingName="ProductNo" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="ItemDescription" MappingName="ItemDescription" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="MatrialNo" MappingName="MatrialNo" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="Specification" MappingName="Specification" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="Description" MappingName="Description" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
-            <syncfusion:GridTextColumn HeaderText="Project" MappingName="Project" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
-            <syncfusion:GridTextColumn HeaderText="QtyReq" MappingName="QtyReq" Width="300" TextAlignment="Center"  HorizontalHeaderContentAlignment="Center"/>
-            <syncfusion:GridTextColumn HeaderText="UnitofMeasurment" MappingName="UnitofMeasurment" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="UnitWt" MappingName="UnitWt" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
-            <syncfusion:GridTextColumn HeaderText="WeightUnit" MappingName="WeightUnit" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
-            <syncfusion:GridTextColumn HeaderText="PurchasingDocument" MappingName="PurchasingDocument" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="Item" MappingName="Item" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="PurchaseOrderNo" MappingName="PurchaseOrderNo" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center"/>
-            <syncfusion:GridTextColumn HeaderText="UnitRatePrice" MappingName="UnitRatePrice" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center"/>
-            <syncfusion:GridTextColumn HeaderText="NetOrderPrice" MappingName="NetOrderPrice" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center"/>
-            <syncfusion:GridTextColumn HeaderText="Currency" MappingName="Currency" Width="300" TextAlignment="Center" HorizontalHeaderContentAlignment="Center"/>
-            <syncfusion:GridTextColumn HeaderText="SupplierName" MappingName="SupplierName" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
-            <syncfusion:GridTextColumn HeaderText="Destination" MappingName="Destination" TextAlignment="Center" Width="300" HorizontalHeaderContentAlignment="Center" />
-
-
-
-        </syncfusion:SfDataGrid.Columns>
-
-    </syncfusion:SfDataGrid>-->
-
-
-
-
-
-    <!--<sb:SampleBrowserLayout>
-        <sb:SampleBrowserLayout.HeaderDescription>
-            <TextBlock Style="{DynamicResource HeaderDescriptionStyle}"
-                       Text="This sample showcases the capability of VirtualizingCollectionView to create records only for the rows that are currently in view"
-                       TextWrapping="Wrap" />
-        </sb:SampleBrowserLayout.HeaderDescription>
-        <sb:SampleBrowserLayout.Content>
-            <Grid Width="1050"
-                  Height="510"
-                  HorizontalAlignment="Left">
-                <syncfusion:SfDataGrid x:Name="dataGrid"
-                                       AllowFiltering="True"
-                                       AllowGrouping="True"
-                                       ColumnSizer="Star"
-                                       NavigationMode="Row"
-                                       AutoGenerateColumns="False"
-                                       ShowGroupDropArea="True">
-                    <syncfusion:SfDataGrid.Resources>
-                        <ResourceDictionary>
-                            <ResourceDictionary.MergedDictionaries>
-                                <ResourceDictionary Source="/Syncfusion.SfGrid.WPF;component/Styles/Styles.xaml" />
-                            </ResourceDictionary.MergedDictionaries>
-                        </ResourceDictionary>
-                    </syncfusion:SfDataGrid.Resources>
-                    <syncfusion:SfDataGrid.Columns>
-                        <syncfusion:GridTextColumn HeaderText="Employee ID" MappingName="EmployeeID" />
-                        <syncfusion:GridTextColumn HeaderText="Employee Name" MappingName="Name" />
-                        <syncfusion:GridTextColumn MappingName="Gender" />
-                        <syncfusion:GridTextColumn MappingName="Title" />
-                        <syncfusion:GridTextColumn MappingName="SickLeaveHours" TextAlignment="Right" />
-                        <syncfusion:GridCurrencyColumn MappingName="Salary" />
-                    </syncfusion:SfDataGrid.Columns>
-                </syncfusion:SfDataGrid>
-            </Grid>
-        </sb:SampleBrowserLayout.Content>
-    </sb:SampleBrowserLayout>-->
-
-
-    
-
+  
 
 
 

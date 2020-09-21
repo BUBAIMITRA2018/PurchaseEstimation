@@ -3,13 +3,13 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="d">
-	<Color x:Key="BackgroundColor">#AE2F33</Color>
-	<Color x:Key="StandardColor">#800000</Color>
-	<Color x:Key="HoverColor">#AAC64D45</Color>
-	<Color x:Key="PressedColor">#AA0000</Color>
-	<Color x:Key="DialogBackgroundColor">#FF666666</Color>
-	<Color x:Key="ScollBarBackgroundStart">#77C64D45</Color>
-	<Color x:Key="ScollBarBackgroundEnd">#99C64D45</Color>
+    <Color x:Key="BackgroundColor">#f2f2f2</Color>
+    <Color x:Key="StandardColor">#f2f2f2</Color>
+    <Color x:Key="HoverColor">#575757</Color>
+    <Color x:Key="PressedColor">#575757</Color>
+    <Color x:Key="DialogBackgroundColor">#575757</Color>
+    <Color x:Key="ScollBarBackgroundStart">#f2f2f2</Color>
+    <Color x:Key="ScollBarBackgroundEnd">#f2f2f2</Color>
 	<SolidColorBrush x:Key="StandardBrush" Color="{StaticResource StandardColor}" />
 	<SolidColorBrush x:Key="HoverBrush" Color="{StaticResource HoverColor}" />
 	<SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
@@ -21,7 +21,7 @@
 	</LinearGradientBrush>
 	<!--  Scrollbar Buttons  -->
 	<Style x:Key="ScrollButtons" TargetType="{x:Type RepeatButton}">
-		<Setter Property="Focusable" Value="false" />
+		<Setter Property="Focusable" Value="True" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type RepeatButton}">
@@ -73,7 +73,7 @@
 		<Setter Property="Stylus.IsFlicksEnabled" Value="false" />
 		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrush}}" />
 		<Setter Property="Background" Value="{DynamicResource ScollBarBackgroundBrush}" />
-		<Setter Property="Width" Value="12" />
+		<Setter Property="Width" Value="20" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type ScrollBar}">

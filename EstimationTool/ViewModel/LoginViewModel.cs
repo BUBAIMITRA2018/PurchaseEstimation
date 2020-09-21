@@ -10,6 +10,9 @@ using EstimationTool.Models;
 using EstimationTool.Helper;
 using System;
 using EstimationTool.RegistrationScreen;
+using EstimationTool.LoginScreen;
+using System.Windows;
+
 
 namespace Estimationtool.ViewModels
 {
@@ -18,8 +21,13 @@ namespace Estimationtool.ViewModels
 
         private string _username;
         private string _password;
+        private bool _boolfilteractivate;
         private bool _areCredentialsInvalid;
         private IUserStore<User> _usersdata;
+        LogIn LoginObj = new LogIn();
+        
+
+        
 
 
         public LoginViewModel(IUserStore<User> usersdata)
@@ -30,6 +38,18 @@ namespace Estimationtool.ViewModels
             _usersdata = usersdata;
 
         }
+
+
+        public bool Boolfilteractivate
+        {
+            get => this._boolfilteractivate;
+            set
+            {
+                this.SetProperty(ref this._boolfilteractivate, value);
+            }
+        }
+
+
 
 
         public string Username
@@ -48,12 +68,12 @@ namespace Estimationtool.ViewModels
             {
                 this.SetProperty(ref this._password, value);
 
-               
-            }
-        }
+
+    }
+}
 
 
-        private ICommand registrationcommand;
+private ICommand registrationcommand;
         public ICommand Registrationcommand
         {
             get
@@ -82,25 +102,7 @@ namespace Estimationtool.ViewModels
 
 
 
-        private ICommand authenticateCommand;
-        public ICommand AuthenticateCommand
-        {
-            get
-            {
-                return authenticateCommand ?? (authenticateCommand = new AsyncRelayCommand(X => doStuff2()));
-            }                                                                                  
-  
-        }
-
-        private async Task doStuff2()
-        {
-            AreCredentialsInvalid = await UserAuthenticated(Username, Password);
-            if (!AreCredentialsInvalid) return;
-
-            MainWindow window = new MainWindow();
-            window.Show();
-        }
-
+     
 
 
 
@@ -111,6 +113,7 @@ namespace Estimationtool.ViewModels
                 || string.IsNullOrEmpty(password))
             {
                 is_match = false;
+                return is_match;
 
             }
 

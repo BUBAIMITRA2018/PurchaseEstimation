@@ -90,7 +90,7 @@ namespace Estimationtool.Services
         public async Task<bool> DeleteItemAsync(int id)
         {
 
-            var oldproduct = products.Where((Product arg) => arg.Id == id).FirstOrDefault();
+            var oldproduct = products.Where((Product arg) => arg.ID == id).FirstOrDefault();
             products.Remove(oldproduct);
 
             return await Task.FromResult(true);
@@ -177,7 +177,7 @@ namespace Estimationtool.Services
 
         public async Task<bool> UpdateItemAsync(Product product)
         {
-            var oldproduct = products.Where((Product arg) => arg.Id == product.Id).FirstOrDefault();
+            var oldproduct = products.Where((Product arg) => arg.ID == product.ID).FirstOrDefault();
             products.Remove(oldproduct);
             products.Add(product);
             return await Task.FromResult(true);

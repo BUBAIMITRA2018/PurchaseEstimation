@@ -30,6 +30,7 @@ namespace EstimationTool.Helper
         {
             _task = _action(parameter);
             OnCanExecuteChanged();
+           
             await _task;
             OnCanExecuteChanged();
         }

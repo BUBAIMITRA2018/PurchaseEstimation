@@ -1,4 +1,7 @@
-﻿using EstimationTool.HomeScreen;
+﻿using Estimationtool.ViewModels;
+using EstimationTool.HomeScreen;
+using EstimationTool.LoginScreen;
+using EstimationTool.Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +24,29 @@ namespace EstimationTool
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private string _username;
+
+        public MainWindow(string username)
         {
             InitializeComponent();
+            UserControl usc = null;
+            GridMain.Children.Clear();
+            usc = new UserControlHome();
+            GridMain.Children.Add(usc);
+            _username = username;
+            this.username_entry.Text = _username;
+
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            ServiceLocator servicelocator = new ServiceLocator();
+            LogIn window = new LogIn();
+            LoginViewModel vm = servicelocator.LoginViewModel;
+            window.DataContext = vm;
+            this.Close();
+            window.Show();
+
         }
         //private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         //{
@@ -37,29 +60,22 @@ namespace EstimationTool
         //    ButtonOpen.Visibility = Visibility.Visible;
         //}
 
-        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UserControl usc = null;
-            GridMain.Children.Clear();
+        //private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    UserControl usc = null;
+        //    GridMain.Children.Clear();
 
-            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
-            {
-                case "Home":
-                    usc = new UserControlHome();
-                    GridMain.Children.Add(usc);
-                    break;
-                //case "CustomFilters":
-                //    usc = new UserControlCustomFilters();
-                //    GridMain.Children.Add(usc);
-                //    break;
-                //case "Help":
-                //    usc = new UserControlHelp();
-                //    GridMain.Children.Add(usc);
-                //    break;
-                default:
-                    break;
-            }
-        }
+        //    switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+        //    {
+        //        case "Home":
+        //            usc = new UserControlHome();
+        //            GridMain.Children.Add(usc);
+        //            break;
+
+        //        default:
+        //            break;
+        //    }
+        //}
 
     }
 }

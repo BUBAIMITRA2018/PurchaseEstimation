@@ -15,9 +15,9 @@ namespace Estimationtool.Data
         {
             dbcom = new DbConn
             {
-                server_dbname = "Estimation",
-                server_name = "192.168.56.1",
-                server_user = "sa",
+                server_dbname = "EstimationDB",
+                server_name = "WAP101478",
+                server_user = "Estimation",
                 server_pass = "sms@123"
             };
 

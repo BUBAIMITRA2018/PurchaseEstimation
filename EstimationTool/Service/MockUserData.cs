@@ -17,7 +17,10 @@ namespace EstimationTool.Service
         {
             dataacess = new DataAcess();
             listofusers = new List<User>();
-
+            //User user = new User();
+            //user.Id = 1;
+            //user.Username = "Estimation";
+            //user.Password = "sms@123";
             var users = dataacess.users.ToList();
 
             foreach (var user in users)

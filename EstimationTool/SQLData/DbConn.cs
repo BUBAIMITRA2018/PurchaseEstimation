@@ -30,6 +30,7 @@ namespace Estimationtool.Data
             }
 
             string s = (@"Data Source =(local)\SQLEXPRESS; Initial Catalog = Estimation; User ID = sa; Password = sms@123; ");
+            //string s = (@" Data Source = WAP101478; Initial Catalog = EstimationDB; Persist Security Info = True; User ID = Estimation; Password = sms@123;");
 
             return s;
 

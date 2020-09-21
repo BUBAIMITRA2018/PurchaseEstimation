@@ -1,6 +1,8 @@
 ﻿using Estimationtool;
+using Estimationtool.Helper;
 using Estimationtool.Models;
 using Estimationtool.Services;
+using EstimationTool.Helper;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,7 @@ namespace EstimationTool.ViewModel
     public class HomeViewModel : BaseViewModel
     {
         private Product _selectedProduct;
-
+        private bool _boolfilteractivate;
         private bool _isRefreshing;
         private  IDataStore<Product> mockdata;
 
@@ -37,7 +39,56 @@ namespace EstimationTool.ViewModel
             set { this.SetProperty(ref this._selectedProduct, value); }
         }
 
-       
+
+        private bool _isSelected;
+        public bool IsSelected
+        {
+            get { return _isSelected; }
+            set { this.SetProperty(ref this._isSelected, value); }
+          
+        }
+
+        public bool Boolfilteractivate
+        {
+            get => this._boolfilteractivate;
+            set
+            {
+                this.SetProperty(ref this._boolfilteractivate, value);
+            }
+        }
+
+
+        private ICommand applyFilterCommand;
+        public ICommand ApplyFilterCommand
+        {
+            get
+            {
+                return applyFilterCommand ?? (applyFilterCommand = new DelegateCommand<object>(X =>
+                {
+
+                    Boolfilteractivate = true;
+
+                }));
+            }
+        }
+
+
+        private ICommand refreshCommand;
+        public ICommand RefreshCommand
+        {
+            get
+            {
+
+                return refreshCommand ?? (refreshCommand = new AsyncRelayCommand(X => AsyncRefreshCommand()));
+
+            }
+
+        }
+
+        private async Task AsyncRefreshCommand()
+        {
+            await ExecuteLoadItemsCommand();
+        }
 
         public HomeViewModel(IDataStore<Product> Mockdata)
         {

@@ -15,7 +15,7 @@ namespace Estimationtool.Models
         private int id;
 
      
-        public int Id
+        public int ID
         {
             get { return this.id; }
             set { this.SetProperty(ref this.id, value); }
