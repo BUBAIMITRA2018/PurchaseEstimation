@@ -2,7 +2,7 @@
 using Estimationtool.ViewModels;
 using EstimationTool.LoginScreen;
 using EstimationTool.Models;
-using EstimationTool.Ninject;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,75 +29,22 @@ namespace EstimationTool.RegistrationScreen
         {
             InitializeComponent();
 
-            ServiceLocator servicelocator = new ServiceLocator();
-            RegistrationViewModel vm = servicelocator.RegistrationViewModel;
-            this.DataContext = vm;
+         
+            //RegistrationViewModel vm = servicelocator.RegistrationViewModel;
+            //this.DataContext = vm;
          
         }
 
         private void GoToLogin_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ServiceLocator servicelocator = new ServiceLocator();
+     
             LogIn window = new LogIn();
             this.Close();
-            LoginViewModel vm = servicelocator.LoginViewModel;
-            window.DataContext = vm;
+     
             window.Show();
 
         }
 
-        //private  void SingUp_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //    try
-        //    {
-
-        //        DataAcess dataacess = new DataAcess();
-        //        var users = dataacess.users.ToList();
-        //        bool is_match = false;
-
-        //        foreach (var user in users)
-        //        {
-        //            is_match = Email.Text.ToLowerInvariant() == user.Username.ToLowerInvariant();
-        //            if (is_match)
-        //            {
-        //                break;
-
-        //            }
-
-        //        }
-
-        //        if (is_match)
-        //        {
-        //            MessageBoxResult result = MessageBox.Show("Email Id already Exist");
-
-        //        }
-        //        else
-        //        {
-        //            User objCompanyUser = new User();
-        //            objCompanyUser.Username = Email.Text;
-        //            objCompanyUser.Password = Password.Text;
-
-        //            dataacess.users.Add(objCompanyUser);
-
-        //            dataacess.SaveChangesAsync();
-
-
-
-        //        }
-
-        //    }
-
-        //    catch (Exception ex)
-        //    {
-        //        Debug.WriteLine(ex);
-        //    }
-
-
-
-
-
-
-        //}
+      
     }
 }

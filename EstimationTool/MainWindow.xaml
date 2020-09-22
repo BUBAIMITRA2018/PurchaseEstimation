@@ -6,54 +6,25 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:EstimationTool"
      
-        mc:Ignorable="d" Height="600" Width="1080" Foreground="White" ResizeMode="CanMinimize" 
+        mc:Ignorable="d" Height="600" Width="1920" Foreground="White" ResizeMode="CanMinimize" 
         WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized">
     <Window.Resources>
-        <!--<Storyboard x:Key="CloseMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="OpenMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>-->
-        <Storyboard x:Key="OpenMenu"/>
-        <Storyboard x:Key="CloseMenu"/>
+
     </Window.Resources>
-    <!--<Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonClose">
-            <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>       
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
-            <BeginStoryboard x:Name="OpenMenu_BeginStoryboard" Storyboard="{StaticResource OpenMenu}"/>
-        </EventTrigger>
-    </Window.Triggers>-->
+
     <Grid>
         <Grid x:Name="GridBackground" Background="white"  >
-            <!--<Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="540" Width="1010"/>-->
+          
             <Grid x:Name="GridMain" />
 
 
             <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
                 <Grid.Effect>
-                    <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
+                    <DropShadowEffect BlurRadius="0" ShadowDepth="0" Color="#548581"/>
                 </Grid.Effect>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock x:Name="username_entry" Text="username" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Margin="0,10" Width="Auto" />
-                    <!--<Image Source="Assets/SMSLOGO1.png" Margin="10,15,0,16" Width="182" IsEnabled="False"/>-->
-                    <!--<TextBlock Text="SMS-GROUP" VerticalAlignment="Center" FontSize="16" />-->
+                 
                     <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
                         <StackPanel Width="100">
 
@@ -63,19 +34,10 @@
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </StackPanel>
-                <Image Source="Assets/SMSLOGO1.png" Margin="-410,9,1308,0"  Width="182" IsEnabled="False" RenderTransformOrigin="-0.016,0.172"/>
+                <Image Source="Assets/SMSLOGO1.png" Margin="10,0,1691,0" IsEnabled="False" RenderTransformOrigin="-0.016,0.172"/>
             </Grid>
 
 
-            <!--<Button x:Name="ButtonOpen" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}">
-            <materialDesign:PackIcon Kind="Menu" Foreground="#FF313131"/>
-        </Button>-->
-            <!--<Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Margin="-250 0 0 0" Background="White" RenderTransformOrigin="0.5,0.5">-->
-
-            <!--<Button x:Name="ButtonClose" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}">
-            <materialDesign:PackIcon Kind="Close"/>-->
-
-            <!--</Button>-->
         </Grid>
     </Grid>
 </Window>

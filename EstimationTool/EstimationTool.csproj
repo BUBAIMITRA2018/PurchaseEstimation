@@ -197,6 +197,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EstimationDataSet.cs">
+      <DependentUpon>EstimationDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EstimationDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -215,20 +218,12 @@
     </Compile>
     <Compile Include="Models\FilterObj.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Ninject\ServiceLocator.cs" />
-    <Compile Include="Ninject\ServiceModule.cs" />
     <Compile Include="RegistrationScreen\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\DataGridStyle.xaml.cs">
       <DependentUpon>DataGridStyle.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service\IDataStore.cs" />
-    <Compile Include="Service\IEventAggregator.cs" />
-    <Compile Include="Service\ISqlConnectionInterface.cs" />
-    <Compile Include="Service\IUserStore.cs" />
-    <Compile Include="Service\MockDataStore.cs" />
-    <Compile Include="Service\MockUserData.cs" />
     <Compile Include="SQLData\DataAcess.cs" />
     <Compile Include="SQLData\DbConn.cs" />
     <Compile Include="SQLData\IDbConn.cs" />

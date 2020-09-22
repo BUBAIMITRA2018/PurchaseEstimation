@@ -32,9 +32,9 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel>
+    <StackPanel >
 
-        <DataGrid  HorizontalAlignment="Left" Height="943" VerticalAlignment="Stretch" Width="1894"   AlternationCount="2"    AutoGenerateColumns="False"                
+        <DataGrid  HorizontalAlignment="Left" Height="943" VerticalAlignment="Stretch" Width="1894" AlternationCount="2"    AutoGenerateColumns="False"                
          ItemsSource="{Binding Products}" SelectedItem="{Binding IsSelected}" x:Name="dataGrid" Margin="10,75,-1144,0">
 
             <!--<DataGrid.RowStyle>
@@ -57,7 +57,7 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
                                 <Grid>
-                                    <Border x:Name="columnHeaderBorder"
+                                  <Border x:Name="columnHeaderBorder"
 						            BorderThickness="1"
 						            Padding="3,0,3,0">
                                         <Border.BorderBrush>
@@ -75,7 +75,7 @@
                                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
 							                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
 							                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                    </Border>
+                                  </Border>
                                 </Grid>
                             </ControlTemplate>
                         </Setter.Value>

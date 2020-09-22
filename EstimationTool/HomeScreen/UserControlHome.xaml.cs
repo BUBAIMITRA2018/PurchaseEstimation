@@ -1,7 +1,7 @@
 ﻿using Estimationtool.Models;
-using Estimationtool.Services;
+
 using EstimationTool.Models;
-using EstimationTool.Ninject;
+
 using EstimationTool.ViewModel;
 using MaterialDesignThemes.Wpf;
 using System;
@@ -31,7 +31,7 @@ namespace EstimationTool.HomeScreen
     public partial class UserControlHome : UserControl
     {
         HomeViewModel HV;
-        ServiceLocator servicelocator = new ServiceLocator();
+     
         CollectionViewSource vdata;
         CollectionViewSource vdata_stor;
         
@@ -41,30 +41,28 @@ namespace EstimationTool.HomeScreen
         Dictionary<string, ObservableCollection<FilterObj>> filters;
         PackIcon wantedchild;
         IList<PackIcon> wantedchilds = new List<PackIcon>();
+  
 
         ObservableCollection<Product> listofproduct;
 
         public UserControlHome()
         {
             InitializeComponent();
+             HV = new HomeViewModel();
 
             filters = new Dictionary<string, ObservableCollection<FilterObj>>();
 
             listofproduct = new ObservableCollection<Product>();
 
-            var products = servicelocator.HomeViewModel.Products;
+         
 
-            listofproduct = products;
-
-            vdata = new CollectionViewSource { Source = servicelocator.HomeViewModel.Products };
+            vdata = new CollectionViewSource { Source = HV.Products.ToList()};
             vdata_stor = vdata;
 
             vdata.Filter += Vdata_Filter;
 
-            ////dataGrid.ItemsSource = vdata.View;
-            this.DataContext = servicelocator.HomeViewModel;
-
-            //dataGrid.ItemsSource = listofproduct;
+            
+            this.DataContext = HV;
 
           
 
@@ -387,7 +385,7 @@ namespace EstimationTool.HomeScreen
 
             vdata.Filter -= new FilterEventHandler(Vdata_Filter);
 
-            vdata = new CollectionViewSource { Source = servicelocator.HomeViewModel.Products };
+            vdata = new CollectionViewSource { Source = HV.Products };
 
             dataGrid.ItemsSource = vdata.View;
 
@@ -458,7 +456,7 @@ namespace EstimationTool.HomeScreen
 
         private void RefreshData_Click(object sender, RoutedEventArgs e)
         {
-            this.dataGrid.ItemsSource = servicelocator.HomeViewModel.Products;
+            this.dataGrid.ItemsSource = HV.Products;
             this.dataGrid.Items.Refresh();
 
         }

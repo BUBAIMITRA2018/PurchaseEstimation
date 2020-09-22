@@ -8,8 +8,7 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Height" Value="Auto"/>
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-                
+        <Setter Property="VerticalContentAlignment" Value="Center" />               
         
         <Setter Property="Background" Value="#e6f9ff" />
 		<Setter Property="SnapsToDevicePixels" Value="False" />
@@ -25,13 +24,14 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-		<Setter Property="Template">
+       
+        <Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type DataGridRow}">
 					<Border x:Name="DGR_Border"
-					        BorderBrush="{TemplateBinding BorderBrush}"
+                             BorderBrush="{TemplateBinding BorderBrush}"
 					        BorderThickness="{TemplateBinding BorderThickness}"
-					        SnapsToDevicePixels="False">
+                        SnapsToDevicePixels="False">
 						<Border.Background>
 							<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="0" Color="#f0f0f5" />
@@ -143,24 +143,29 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	
-	<Style TargetType="{x:Type DataGrid}">
+    
+    <Style TargetType="{x:Type DataGrid}">
 		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
 		<!--<Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected" />-->
-		<Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
 		<Setter Property="ScrollViewer.PanningMode" Value="Both" />
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type DataGrid}">
-                    <Border Background="{TemplateBinding Background}"
-					        BorderBrush="{TemplateBinding BorderBrush}"
+                    <Border
+                        Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"					    
 					        BorderThickness="2"
 					        CornerRadius="5"
-					        Padding="{TemplateBinding Padding}"
+                            Padding="{TemplateBinding Padding}"
+					    
                             SnapsToDevicePixels="False">
+
                         
-						<ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+
+                        <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
 							<ScrollViewer.Template>
 								<ControlTemplate TargetType="{x:Type ScrollViewer}">
 									<Grid>
@@ -237,15 +242,16 @@
 			</Trigger>
 		</Style.Triggers>
 	</Style>
-	<BooleanToVisibilityConverter x:Key="bool2VisibilityConverter" />
+	<!--<BooleanToVisibilityConverter x:Key="bool2VisibilityConverter" />-->
 	<Style TargetType="{x:Type DataGridRowHeader}">
 		<Setter Property="Width" Value="25" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type DataGridRowHeader}">
 					<Grid>
-						<Microsoft_Windows_Themes:DataGridHeaderBorder Background="{TemplateBinding Background}"
-						                                               BorderBrush="{TemplateBinding BorderBrush}"
+                        <Microsoft_Windows_Themes:DataGridHeaderBorder   Background="{TemplateBinding Background}" 
+                        
+                                                                       BorderBrush="{TemplateBinding BorderBrush}"
 						                                               BorderThickness="{TemplateBinding BorderThickness}"
 						                                               IsHovered="{TemplateBinding IsMouseOver}"
 						                                               IsPressed="{TemplateBinding IsPressed}"
@@ -256,12 +262,12 @@
 						                                               SeparatorVisibility="{TemplateBinding SeparatorVisibility}">
 							<StackPanel Orientation="Horizontal">
 								<ContentPresenter VerticalAlignment="Center" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-								<Control SnapsToDevicePixels="false"
-								         Template="{Binding ValidationErrorTemplate,
+                                <Control SnapsToDevicePixels="false" />
+                                <!--Template="{Binding ValidationErrorTemplate,
 								                            RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"
 								         Visibility="{Binding (Validation.HasError),
 								                              Converter={StaticResource bool2VisibilityConverter},
-								                              RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}" />
+								                              RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"--><!-- />-->
 							</StackPanel>
 						</Microsoft_Windows_Themes:DataGridHeaderBorder>
 					</Grid>

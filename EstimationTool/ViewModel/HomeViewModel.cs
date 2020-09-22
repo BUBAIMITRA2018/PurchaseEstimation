@@ -1,7 +1,8 @@
 ﻿using Estimationtool;
+using Estimationtool.Data;
 using Estimationtool.Helper;
 using Estimationtool.Models;
-using Estimationtool.Services;
+
 using EstimationTool.Helper;
 using Ninject;
 using System;
@@ -20,7 +21,7 @@ namespace EstimationTool.ViewModel
         private Product _selectedProduct;
         private bool _boolfilteractivate;
         private bool _isRefreshing;
-        private  IDataStore<Product> mockdata;
+ 
 
         public ObservableCollection<Product> Products { get; set; }
      
@@ -90,10 +91,10 @@ namespace EstimationTool.ViewModel
             await ExecuteLoadItemsCommand();
         }
 
-        public HomeViewModel(IDataStore<Product> Mockdata)
+        public HomeViewModel()
         {
             Products = new ObservableCollection<Product>();
-            mockdata = Mockdata;
+   
 
 
             try
@@ -129,7 +130,12 @@ namespace EstimationTool.ViewModel
             try
             {
                 Products.Clear();
-                var items = await mockdata.GetItemsAsync();
+                DataAcess dataacess = new DataAcess();
+                var items = dataacess.Products.ToList();
+                //EstimationDataSet estimationdataset = new EstimationDataSet();
+                //EstimationDataSetTableAdapters.ProductsTableAdapter productsTableAdapter = new EstimationDataSetTableAdapters.ProductsTableAdapter();
+                //productsTableAdapter.Fill(estimationdataset.Products);
+                //var items = estimationdataset.Products.ToList();
                 foreach (var item in items)
                 {
                     Products.Add(item);

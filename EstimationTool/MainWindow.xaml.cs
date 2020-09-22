@@ -1,7 +1,7 @@
 ﻿using Estimationtool.ViewModels;
 using EstimationTool.HomeScreen;
 using EstimationTool.LoginScreen;
-using EstimationTool.Ninject;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,10 +40,10 @@ namespace EstimationTool
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
-            ServiceLocator servicelocator = new ServiceLocator();
+        
             LogIn window = new LogIn();
-            LoginViewModel vm = servicelocator.LoginViewModel;
-            window.DataContext = vm;
+        
+         
             this.Close();
             window.Show();
 

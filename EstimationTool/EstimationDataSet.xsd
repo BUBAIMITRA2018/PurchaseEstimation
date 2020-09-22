@@ -47,7 +47,7 @@ SELECT ID, WBSElement, ProductNo, ItemDescription, MatrialNo, Size, Specificatio
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT ID, WBSElement, ProductNo, ItemDescription, MatrialNo, Size, Specification, Project, QtyReq, Description, UnitofMeasurment, UnitWt, WeightUnit, PurchasingDocument, Item, PurchaseOrderNo, UnitRatePrice, NetOrderPrice, Currency, SupplierName, Destination FROM dbo.Products</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -173,7 +173,7 @@ SELECT Id, Username, Password FROM users WHERE (Id = @Id)</CommandText>
   <xs:element name="EstimationDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="EstimationDataSet" msprop:Generator_UserDSName="EstimationDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_UserTableName="Products" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_RowEvArgName="ProductsRowChangeEvent" msprop:Generator_RowClassName="ProductsRow">
+        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_RowClassName="ProductsRow" msprop:Generator_UserTableName="Products" msprop:Generator_RowEvArgName="ProductsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -320,7 +320,7 @@ SELECT Id, Username, Password FROM users WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_UserTableName="users" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_RowEvArgName="usersRowChangeEvent" msprop:Generator_RowClassName="usersRow">
+        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_RowClassName="usersRow" msprop:Generator_UserTableName="users" msprop:Generator_RowEvArgName="usersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

@@ -3,13 +3,13 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="d">
-    <Color x:Key="BackgroundColor">#f2f2f2</Color>
-    <Color x:Key="StandardColor">#f2f2f2</Color>
+    <Color x:Key="BackgroundColor">#575757</Color>
+    <Color x:Key="StandardColor">#575757</Color>
     <Color x:Key="HoverColor">#575757</Color>
     <Color x:Key="PressedColor">#575757</Color>
     <Color x:Key="DialogBackgroundColor">#575757</Color>
-    <Color x:Key="ScollBarBackgroundStart">#f2f2f2</Color>
-    <Color x:Key="ScollBarBackgroundEnd">#f2f2f2</Color>
+    <Color x:Key="ScollBarBackgroundStart">#575757</Color>
+    <Color x:Key="ScollBarBackgroundEnd">#575757</Color>
 	<SolidColorBrush x:Key="StandardBrush" Color="{StaticResource StandardColor}" />
 	<SolidColorBrush x:Key="HoverBrush" Color="{StaticResource HoverColor}" />
 	<SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />

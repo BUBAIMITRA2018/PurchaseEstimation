@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 using System.Threading.Tasks;
 using EstimationTool;
-using EstimationTool.Service;
+
 using EstimationTool.Models;
 using EstimationTool.Helper;
 using System;
@@ -23,19 +23,19 @@ namespace Estimationtool.ViewModels
         private string _password;
         private bool _boolfilteractivate;
         private bool _areCredentialsInvalid;
-        private IUserStore<User> _usersdata;
+
         LogIn LoginObj = new LogIn();
         
 
         
 
 
-        public LoginViewModel(IUserStore<User> usersdata)
+        public LoginViewModel()
         {
 
-            AreCredentialsInvalid = false;
 
-            _usersdata = usersdata;
+
+         
 
         }
 
@@ -73,73 +73,7 @@ namespace Estimationtool.ViewModels
 }
 
 
-private ICommand registrationcommand;
-        public ICommand Registrationcommand
-        {
-            get
-            {
-                return registrationcommand ?? (registrationcommand = new DelegateCommand<object>(X =>
-                {
-                    Registration window = new Registration();
-                    window.Show();
 
 
-                }));
-            }
-
-
-
-        }
-
-        public bool AreCredentialsInvalid
-        {
-            get => _areCredentialsInvalid;
-            set
-            {
-                this.SetProperty(ref this._areCredentialsInvalid, value);
-            }
-        }
-
-
-
-     
-
-
-
-        private async Task<bool> UserAuthenticated(string username, string password)
-        {
-            bool is_match = false; 
-            if (string.IsNullOrEmpty(username)
-                || string.IsNullOrEmpty(password))
-            {
-                is_match = false;
-                return is_match;
-
-            }
-
-            var users = await _usersdata.GetItemsAsync();
-
-            foreach (var user in users)
-            {
-              is_match = username.ToLowerInvariant() == user.Username && password.ToLowerInvariant() == user.Password;
-
-                if (is_match)
-                    {
-                    break;
-
-                    }
-
-
-            }
-
-
-            return is_match;
-
-
-
-       
-
-
-    }
     }
 }
